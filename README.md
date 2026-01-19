@@ -12,7 +12,18 @@ Repository:
 https://github.com/somersby10ml/cotate
 ```
 
-Download a snapshot (no git clone), install, and run:
+Run directly (always latest):
+```bash
+bunx github:somersby10ml/cotate@latest
+```
+
+Install globally (always latest), then run:
+```bash
+bun install -g github:somersby10ml/cotate@latest
+cotate --help
+```
+
+If you want a local copy:
 ```bash
 bunx degit somersby10ml/cotate cotate
 cd cotate
