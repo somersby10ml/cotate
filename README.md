@@ -5,15 +5,18 @@ CLI tool for managing authentication configurations. Built for Bun (not publishe
 ## Requirements
 - Bun
 
-## Quick start (Bun)
+## Quick start (Bun, no git clone)
 
-Install dependencies:
-```bash
-bun install
+Repository:
+```text
+https://github.com/somersby10ml/cotate
 ```
 
-Run immediately:
+Download a snapshot (no git clone), install, and run:
 ```bash
+bunx degit somersby10ml/cotate cotate
+cd cotate
+bun install
 bun run src/index.ts
 ```
 
