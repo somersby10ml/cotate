@@ -111,6 +111,7 @@ export async function handleList(): Promise<void> {
       const account = authsData[email];
       const rateLimits = account?.metadata?.rate_limits;
       const planType = rateLimits?.plan_type || "unknown";
+      const notes = account?.metadata?.notes || "";
 
       return {
         index: `${index + 1})`,
@@ -118,7 +119,8 @@ export async function handleList(): Promise<void> {
         email,
         plan: planType,
         primaryUsed: formatUsage(rateLimits?.primary?.used_percent, rateLimits?.primary?.resets_at),
-        secondaryUsed: formatUsage(rateLimits?.secondary?.used_percent, rateLimits?.secondary?.resets_at)
+        secondaryUsed: formatUsage(rateLimits?.secondary?.used_percent, rateLimits?.secondary?.resets_at),
+        notes: notes.length > 30 ? notes.substring(0, 30) + "..." : notes
       };
     });
 
@@ -128,7 +130,8 @@ export async function handleList(): Promise<void> {
       { key: "email", header: "email" },
       { key: "plan", header: "type" },
       { key: "primaryUsed", header: "5h used" },
-      { key: "secondaryUsed", header: "weekly used" }
+      { key: "secondaryUsed", header: "weekly used" },
+      { key: "notes", header: "notes" }
     ] as const;
 
     const stripAnsi = (value: string) => value.replace(/\x1b\[[0-9;]*m/g, "");

@@ -33,6 +33,7 @@ export interface RateLimits {
 export interface Metadata {
   rate_limits: RateLimits;
   last_updated: number;
+  notes?: string;
 }
 
 export interface AccountData {
